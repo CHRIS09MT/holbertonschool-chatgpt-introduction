@@ -7,5 +7,15 @@ def factorial(n):
         result *= n
         n -= 1
     return result
-f = factorial(int(sys.argv[1]))
-print(f)
+
+if len(sys.argv) < 2:
+    print("Usage: {} <number>".format(sys.argv[0]))
+    sys.exit(1)
+
+try:
+    n = int(sys.argv[1])
+    f = factorial(n)
+    print(f)
+except ValueError:
+    print("Please provide a valid integer as an argument.")
+    sys.exit(1)
